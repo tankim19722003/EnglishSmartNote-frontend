@@ -10,7 +10,7 @@ const Flashcard: React.FC<ChatContentModel> = ({ imageUrl, word, examples }) => 
       <img
         src={imageUrl}
         alt={word}
-        className="w-full h-32 object-cover rounded-md mb-4"
+        className="w-full h-32 object-contain rounded-md mb-4"
       />
 
       {/* Word Section - Smaller */}

@@ -1,9 +1,9 @@
 import { useState } from "react";
 import Header from "../components/Header";
 import UserInput from "../components/UserInput";
-import { sendMessage } from "../services/ChatService";
 import type { ChatContentModel } from "../models/ChatContentModel";
 import Flashcard from "../components/FlashCard";
+import { createFlashCart } from "../services/ChatService";
 
 const ChatLayout = () => {
   const [chatContent, setChatContent] = useState<ChatContentModel>();
@@ -13,10 +13,10 @@ const ChatLayout = () => {
     console.log("Message sent:", message);
 
     setLoading(true);
-    const response = await sendMessage(message);
+    const response : ChatContentModel= await createFlashCart(message);
     setLoading(false);
 
-    setChatContent({ word: message, ...response });
+    setChatContent(response);
   }
 
   return (
